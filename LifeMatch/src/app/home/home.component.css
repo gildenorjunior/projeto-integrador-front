@@ -1,0 +1,28 @@
+
+
+/* jumbotron com opacidade */
+#jumbo {
+    /* IE8 and below */
+    background: rgb(121, 116, 194);
+    /* all other browsers */
+    background: rgba(54, 88, 200, 0.5);
+}
+#white {
+    background: rgb(255, 255, 255);
+}
+
+/* Depoimentos */
+.conteudo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+ }
+ .card{
+    background-color:  rgba(255, 255, 255, 0.6);
+    min-width: 350px;
+    margin: 10px;
+    height: 270px;
+    text-align: center;
+ }

@@ -1,0 +1,21 @@
+.teste {
+    text-decoration: none;
+    color: black;
+
+}
+
+.teste:hover{
+    background-color: #DC3545;
+    border-radius: 5px;
+    color: #fff;
+}
+
+.muda {
+   width:34px;
+   height: 100%;
+   padding: 0; 
+}
+
+.muda:hover {
+    background-color: aqua; 
+ }
