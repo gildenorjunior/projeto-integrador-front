@@ -33,7 +33,7 @@
     <!--Slides-->
     <div class="carousel-inner" role="listbox">
   
-      <!--First slide-->
+      <!--Abertura dos cards -->
       <div class="carousel-item active">
   
         <!--Primeiro card-->
@@ -202,15 +202,25 @@
 
 
  <!--Pesquisa Postagens-->
- <nav class="d-flex">
-  <div class="nav nav-tabs" id="nav-tab" role="tablist">
-    <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#minhas-postagens"
-      role="tab" aria-controls="nav-home" aria-selected="true">Minhas Postagens</a>
 
-    <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#postagens-temas" role="tab"
-      aria-controls="nav-profile" aria-selected="false">Postagens por tema</a>
+  <div class="row">
+    <div class="col-md-6">
+      <button type="button" class="btn btn-primary btn-lg d-flex justify-content-start">Criar Postagem</button>
+    </div>
+    <div class="col-md-6">
+      <nav class="d-flex justify-content-end">
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active text-secondary font-weight-bold" id="nav-home-tab" data-toggle="tab" href="#minhas-postagens"
+            role="tab" aria-controls="nav-home" aria-selected="true">Minhas Postagens</a>
+      
+          <a class="nav-item nav-link text-secondary font-weight-bold" id="nav-profile-tab" data-toggle="tab" href="#postagens-temas" role="tab"
+            aria-controls="nav-profile" aria-selected="false">Postagens por tema</a>
+        </div>
+      </nav>
+    </div>
   </div>
-</nav>
+
+ 
 
 <div class="tab-content" id="nav-tabContent">
 
@@ -237,6 +247,9 @@
   </div>
 </div>
 <!--/Pesquisa Postagens-->
+
+
+
 
 
   <!--Inicio das Postagens-->
