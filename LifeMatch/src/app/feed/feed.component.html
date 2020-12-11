@@ -253,63 +253,67 @@
 
 
   <!--Inicio das Postagens-->
-  <div class="mb-4">
-  <div class="row featurette">
-    <div class="col-md-7 align-self-center">
-      <h2 class="featurette-heading">Titulo da postagem</h2>
-      <p class="lead">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Non, sint et. Minus iusto quis deleniti, officia a corporis beatae quas non nulla ratione ab recusandae delectus fugit? Libero, rem accusamus?</p>
-    </div>
-    <div class="col-md-5 d-flex justify-content-end align-self-center">
-      <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
-    </div>
-  </div>
   <div class="row">
-    <div class="col-md-12 d-flex">
-      <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
-      <button type="button" class="btn btn-outline-danger">Apagar</button>
+    <div class="col-md-12">
+      <div class="mb-4" *ngFor='let item of listaPostagens'>
+        <div class="row featurette">
+          <div class="col-md-7 align-self-center">
+            <h2 class="featurette-heading">{{item.titulo}}</h2>
+            <p class="lead">{{item.descricao}}</p>
+          </div>
+          <div class="col-md-5 d-flex justify-content-end align-self-center">
+            <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 d-flex">
+            <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
+            <button type="button" class="btn btn-outline-danger">Apagar</button>
+          </div>
+        </div>
+        </div>
+      
+        <hr class="featurette-divider">
+      
+        <div class="mb-4">
+        <div class="row">
+          <div class="col-md-7 order-md-2 align-self-center ">
+            <h2 class="featurette-heading">Titulo da Postagem</h2>
+            <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam quos corporis harum eveniet esse dicta tempora, quas ipsa aliquam iusto assumenda? Corporis laborum impedit hic dicta quisquam, alias officia facilis?</p>
+          </div>
+          <div class="col-md-5 order-md-1 align-self-center">
+            <img  width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 d-flex justify-content-end">
+            <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
+            <button type="button" class="btn btn-outline-danger">Apagar</button>
+          </div>
+        </div>
+        </div>
+      
+        <hr class="featurette-divider">
+      
+        <div class="mb-4">
+        <div class="row featurette">
+          <div class="col-md-7 align-self-center">
+            <h2 class="featurette-heading">Titulo da Postagem</h2>
+            <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iusto ipsam reprehenderit quia exercitationem odio explicabo deleniti totam, asperiores esse voluptates aut sint debitis eveniet. Nemo quod architecto soluta eligendi!</p>
+          </div>
+          <div class="col-md-5 align-self-center d-flex justify-content-end">
+            <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 d-flex">
+            <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
+            <button type="button" class="btn btn-outline-danger">Apagar</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="mb-4">
-  <div class="row">
-    <div class="col-md-7 order-md-2 align-self-center ">
-      <h2 class="featurette-heading">Titulo da Postagem</h2>
-      <p class="lead">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magnam quos corporis harum eveniet esse dicta tempora, quas ipsa aliquam iusto assumenda? Corporis laborum impedit hic dicta quisquam, alias officia facilis?</p>
-    </div>
-    <div class="col-md-5 order-md-1 align-self-center">
-      <img  width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 d-flex justify-content-end">
-      <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
-      <button type="button" class="btn btn-outline-danger">Apagar</button>
-    </div>
-  </div>
-  </div>
-
-  <hr class="featurette-divider">
-
-  <div class="mb-4">
-  <div class="row featurette">
-    <div class="col-md-7 align-self-center">
-      <h2 class="featurette-heading">Titulo da Postagem</h2>
-      <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus iusto ipsam reprehenderit quia exercitationem odio explicabo deleniti totam, asperiores esse voluptates aut sint debitis eveniet. Nemo quod architecto soluta eligendi!</p>
-    </div>
-    <div class="col-md-5 align-self-center d-flex justify-content-end">
-      <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-12 d-flex">
-      <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
-      <button type="button" class="btn btn-outline-danger">Apagar</button>
-    </div>
-  </div>
-</div>
   <!--/Fim das Postagens-->
 
   
