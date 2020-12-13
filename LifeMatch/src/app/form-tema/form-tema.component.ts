@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Tema } from '../model/Tema';
+import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-form-tema',
@@ -7,9 +10,42 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormTemaComponent implements OnInit {
 
-  constructor() { }
+  tema: Tema = new Tema()
+  listaTemas: Tema[]
+  id: number
 
-  ngOnInit(): void {
+  constructor(
+    private temaService: TemaService,
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    window.scroll(0,0)
+
+    this.findAllTemas()
   }
 
+  findAllTemas(){
+    this.temaService.getAllTemas().subscribe((resp: Tema[])=>{
+      this.listaTemas = resp
+    })
+  }
+
+  findByIdTema(){
+    this.temaService.getByIdTema(this.tema.idTema).subscribe((resp: Tema)=>{
+      this.tema = resp
+    })
+  }
+
+  cadastrar(){
+    if(this.tema.categoriaAjuda == null || this.tema.descricao == null){
+      alert("Preencha todos os campos")
+    }else{
+      this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
+        this.tema = resp
+        this.router.navigate(['/painel'])
+        alert('Tema cadastrado com sucesso')
+      })
+    }
+  }
 }

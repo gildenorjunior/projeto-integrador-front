@@ -35,4 +35,5 @@ export class PostagemService {
   deletePostagem(id: number){
     return this.http.delete<Postagem>(`http://localhost:8080/postagem/${id}`, this.token)
   }
+
 }

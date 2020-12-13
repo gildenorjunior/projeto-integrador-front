@@ -203,6 +203,7 @@
 
 
 <!--Pesquisa Postagens-->
+
 <div class="row">
   <div class="col-md-6">
     <button class="btn btn-primary btn-lg d-flex justify-content-start" routerLink="/form-postagens">Criar Postagem</button>
@@ -254,26 +255,26 @@
 
 <!--Inicio das Postagens-->
 <div class="row">
-<div class="col-md-12">
-  <div class="mb-4">
-    <div class="row featurette">
-      <div class="col-md-7 align-self-center">
-        <h2 class="featurette-heading"></h2>
-        <p class="lead"></p>
+  <div class="col-md-12" *ngFor="let item of listaPostagens | orderBy : key : reverse">
+    <div class="mb-5" >
+      <div class="row featurette">
+        <div class="col-md-7 align-self-center">
+          <h2 class="featurette-heading">{{item.titulo}}</h2>
+          <p class="lead">{{item.descricao}}</p>
+        </div>
+        <div class="col-md-5 d-flex justify-content-end align-self-center">
+          <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+        </div>
       </div>
-      <div class="col-md-5 d-flex justify-content-end align-self-center">
-        <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+      <div class="row">
+        <div class="col-md-12 d-flex">
+          <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
+          <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 d-flex">
-        <button type="button" class="btn btn-outline-warning mr-1">Editar</button>
-        <button type="button" class="btn btn-outline-danger">Apagar</button>
-      </div>
-    </div>
+      <hr class="featurette-divider">
     </div>
   </div>
-</div>
 </div>
 <!--/Fim das Postagens-->
 

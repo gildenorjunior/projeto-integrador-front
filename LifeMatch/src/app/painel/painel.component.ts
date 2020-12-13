@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
+import { Usuario } from '../model/Usuario';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
 
-
 @Component({
-  selector: 'app-feed',
-  templateUrl: './feed.component.html',
-  styleUrls: ['./feed.component.css']
+  selector: 'app-painel',
+  templateUrl: './painel.component.html',
+  styleUrls: ['./painel.component.css']
 })
-export class FeedComponent implements OnInit {
+export class PainelComponent implements OnInit {
+
+  key = 'data'
+  reverse = true
 
   //instânciando um objeto Postagem e atribuindo a variavel postagem
   postagem: Postagem = new Postagem()
@@ -21,7 +24,8 @@ export class FeedComponent implements OnInit {
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
-  private router: Router
+
+  usuario: Usuario = new Usuario()
 
   //Injetando as dependências do service.
   constructor(
@@ -50,9 +54,4 @@ export class FeedComponent implements OnInit {
       this.listaTemas = resp
     })
   }
-
-  postagens(){
-    this.router.navigate(['/form-postagens'])
-  }
-
 }
