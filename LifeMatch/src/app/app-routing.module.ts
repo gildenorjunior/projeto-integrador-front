@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { DeletePostagemComponent } from './delete-postagem/delete-postagem.component';
 import { DeleteTemaComponent } from './delete-tema/delete-tema.component';
-import { FeedComponent } from './feed/feed.component';
 import { FormPostagensComponent } from './form-postagens/form-postagens.component';
 import { FormTemaComponent } from './form-tema/form-tema.component';
 import { HomeComponent } from './home/home.component';
@@ -17,7 +16,6 @@ const routes: Routes = [
   { path:'home',component: HomeComponent },
   { path:'login',component: LoginComponent },
   { path:'cadastro',component: CadastroComponent },
-  { path:'feed',component: FeedComponent },
   { path:'painel',component: PainelComponent },
   { path:'form-postagens',component: FormPostagensComponent },
   { path:'form-tema',component: FormTemaComponent },
