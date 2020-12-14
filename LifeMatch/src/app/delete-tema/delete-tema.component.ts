@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Tema } from '../model/Tema';
+import { TemaService } from '../service/tema.service';
 
 @Component({
   selector: 'app-delete-tema',
@@ -7,9 +10,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DeleteTemaComponent implements OnInit {
 
-  constructor() { }
+  tema: Tema = new Tema()
+  id: number
+  idTema: number
 
-  ngOnInit(): void {
+  constructor(
+    private temaService: TemaService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) { }
+
+  ngOnInit() {
+    window.scroll(0,0)
+    this.idTema = this.route.snapshot.params["id"]
+    this.findByIdTema(this.idTema)
+  }
+
+  findByIdTema(id: number){
+    this.temaService.getByIdTema(id).subscribe((resp: Tema)=>{
+      this.tema = resp
+    })
+  }
+
+  btnSim(){
+    this.temaService.deleteTema(this.tema.idTema).subscribe(()=>{
+      this.router.navigate(['/form-tema'])
+      alert('Tema apagado com sucesso')
+    })
+  }
+
+  btnNao(){
+    this.router.navigate(['/form-tema'])
   }
 
 }
