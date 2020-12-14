@@ -19,3 +19,7 @@
 .muda:hover {
     background-color:#B0D8F5;
  }
+
+ a {
+     cursor: pointer;
+ }
