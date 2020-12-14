@@ -1,33 +1,55 @@
 <div class="container justify-content-center">
-    <div class="row ">
-      <div class="col">
-        
+  <div class="row ">
+    <div class="col">
 
-        <div class="container">
-            <div class="row mb-5 mt-5">
-              <div class="col">
-        
-                <div class="row">
-                    <div class="col-md 12 mb-3">
-                        <h1>Cadastre um novo tema!</h1>
-                    </div>
+
+      <div class="container">
+        <div class="row mb-5 mt-5">
+          <div class="col">
+
+            <div class="row">
+              <div class="col-md 12 mb-3 mt-5">
+                <h1>Cadastre um novo tema!</h1>
+              </div>
+            </div>
+
+            <form>
+              <div class="form-row">
+                <div class="form-group col-md-12">
+                  <label for="inputTitulo4">Tema</label>
+                  <input type="text" class="form-control" id="inputTema4" placeholder="Digite aqui o tema" [(ngModel)]="tema.categoriaAjuda" name="categoriaAjuda">
                 </div>
-        
-                <form>
-                    <div class="form-row">
-                      <div class="form-group col-md-12">
-                        <label for="inputTitulo4">Tema</label>
-                        <input type="text" class="form-control" id="inputTema4" placeholder="Digite aqui o tema">
-                      </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleFormControlDescricao">Descrição</label>
-                        <textarea class="form-control" id="exampleFormControlDescricao" rows="3">Digite uma descrição para a postagem</textarea>
-                      </div>
-                    <button type="submit" class="btn btn-primary">Publicar</button>
-                  </form>
-
-                  </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleFormControlDescricao">Descrição</label>
+                <textarea class="form-control" id="exampleFormControlDescricao" placeholder="Digite a descrição da categoria aqui"
+                  rows="3" [(ngModel)]="tema.descricao" name="descricao"></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary" (click)="cadastrar()">Publicar</button>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Tema</th>
+                <th scope="col">Descrição</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of listaTemas">
+                <th scope="row">{{item.idTema}}</th>
+                <td>{{item.categoriaAjuda}}</td>
+                <td>{{item.descricao}}</td>
+                <td class="d-flex justify-content-end">
+                  <a class="btn btn-outline-info mr-3">Editar</a>
+                  <a class="btn btn-outline-danger">Apagar</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
-  </div>

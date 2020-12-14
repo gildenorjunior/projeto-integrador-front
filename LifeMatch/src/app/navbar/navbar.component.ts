@@ -22,4 +22,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigate(['/login'])
     localStorage.clear()
   }
+
+  postagens(){
+    this.router.navigate(['/form-postagens'])
+  }
 }

@@ -3,7 +3,7 @@
       <div class="col">
 
         <div class="row">
-            <div class="col-md 12 mb-3">
+            <div class="col-md 12 mb-3 pt-5">
                 <h1>Que tal divulgar uma atividade legal da ONG ?</h1>
             </div>
         </div>
@@ -12,12 +12,12 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label for="inputTitulo4">Titulo</label>
-                <input type="text" class="form-control" id="inputTitulo4" placeholder="Digite aqui o titulo da postagem">
+                <input type="text" class="form-control" id="inputTitulo4" placeholder="Digite aqui o titulo da postagem" [(ngModel)]='postagem.titulo' name="titulo">
               </div>
             </div>
             <div class="form-group">
                 <label for="exampleFormControlDescricao">Descrição</label>
-                <textarea class="form-control" id="exampleFormControlDescricao" rows="3">Digite uma descrição para a postagem</textarea>
+                <textarea class="form-control" id="exampleFormControlDescricao" rows="3" [(ngModel)]='postagem.descricao' name="descricao">Digite uma descrição para a postagem</textarea>
               </div>
               <div class="form-row">
                 <div class="form-group col-md-12">
@@ -28,9 +28,10 @@
             <div class="form-row">
               <div class="form-group col-md-4">
                 <label for="inputEstado">Tema</label>
-                <select id="inputEstado" class="form-control">
-                  <option>Algum tema</option>
-                  <option>Algum tema</option>
+                <select class="form-control" [(ngModel)]='id' (change)='findByIdTema()' name="id">
+                  <option *ngFor='let item of listaTemas' value={{item.idTema}}>
+                    {{item.categoriaAjuda}}
+                  </option>
                 </select>
               </div>
               <div class="form-group col-md-4">
@@ -42,7 +43,7 @@
               </div>
             </div>
             
-            <button type="submit" class="btn btn-primary">Publicar</button>
+            <button type="submit" class="btn btn-primary" (click)='publicar()' routerLink="/painel">Publicar</button>
           </form>
 
       </div>
