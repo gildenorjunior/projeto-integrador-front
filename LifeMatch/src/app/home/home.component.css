@@ -48,7 +48,7 @@
     background: rgb(209, 186, 245);
  }
  .azulclaro{
-    background: #F8C9D3;
+    background: #BEE4E7;
  }
  .azul{
     background: #9DDBF0;
@@ -56,11 +56,44 @@
  .amarelo{
     background: #FBF6BC;
  }
+ .rosa{
+   background: #F8C9D3;
+}
  .txtt {
    color: #fff;
    font-size: 120px;
    
    text-align: center;
    text-shadow: 0 0 10px #ae00ff;
+}
+
+.bordaazul {
+
+   border: 3px solid #9DDBF0;
+ 
+}
+
+.bordarosa {
+
+   border: 3px solid #F8C9D3;
+ 
+}
+
+.bordalilas {
+
+   border: 3px solid rgb(209, 186, 245);
+ 
+}
+
+.bordaamarela {
+
+   border: 3px solid #FBF6BC;
+ 
+}
+
+.bordaazulclaro {
+
+   border: 3px solid #BEE4E7;
+ 
 }
 
