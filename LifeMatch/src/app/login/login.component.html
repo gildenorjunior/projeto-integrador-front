@@ -1,36 +1,88 @@
-<div class="container">
+    <div class="background">
+        <div>
+    <form class="form " id="form">
 
-    <div class="row mt-5 mb-5">
-        <div class="col-md-12">
-            <h1 class="text-center" >Login</h1>
-        </div>
-    </div>
-    <div class="row mb-5 d-flex justify-content-center">
-        <div class="col-md-6">
-            <div>
-                <div class="form-group">
-                    <label for="exampleInputEmail1">Endereço de email</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email"
-                    [(ngModel)] = 'usuarioLogin.usuario'>
-                    <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small> 
+		<div class="avatar">
+			
+			<div class="cabeca">
+				<div class="orelha-esq orelha"></div>
+				<div class="orelha-dir orelha"></div>
 
+				<div class="olho-esq olhos">
+					<div class="palpebra"></div>
+				</div>
+
+				<div class="olho-dir olhos">
+					<div class="palpebra"></div>
+				</div>
+
+				<div class="narina-esq narinas"></div>
+				<div class="narina-dir narinas"></div>
+
+				<div class="dente-esq dentes"></div>
+				<div class="dente-dir dentes"></div>
+			</div>
+
+			<div class="bracos" id="bracos">
+				<div class="mao-esq mao">
+					<div class="unha"></div>
+				</div>
+
+				<div class="mao-dir mao">
+					<div class="unha"></div>
+				</div>
+			</div>
+		</div>
+        <div class="shadow bg-Light mb-5 mt-5" >
+		<div class="row mb-5 d-flex justify-content-center">
+            <div class="col-md-8 mt-4">
+                <div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Endereço de email</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Seu email"
+                        [(ngModel)] = 'usuarioLogin.usuario'>
+                        <small id="emailHelp" class="form-text text-muted">Nunca vamos compartilhar seu email, com ninguém.</small> 
+    
+                    </div>
+    
+    
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
+                        [(ngModel)]='usuarioLogin.senha'>
+    
+                    </div>
+    
+                    <div class="d-flex justify-content-center mb-5">
+                        <button type="submit" class="btn mb-5 btn-outline-success w-25" (click)='entrar()'>Entrar</button>
+    
+                    </div>
+    
                 </div>
-
-
-                <div class="form-group">
-                    <label for="exampleInputPassword1">Senha</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha"
-                    [(ngModel)]='usuarioLogin.senha'>
-
-                </div>
-
-                <div class="d-flex justify-content-center mb-5">
-                    <button type="submit" class="btn mb-5 btn-outline-success w-25" (click)='entrar()'>Entrar</button>
-
-                </div>
-
             </div>
         </div>
     </div>
 
+    </form>
 </div>
+</div>
+
+<script >
+// Aviso: Não sou tão bom com JQuery, caso exista uma forma melhor de fazer essas funções, por favor, dê um fork e contribua com o parceiro aqui =D!!!
+
+		// Função para adicionar a class ".esconder", responsável pela animação do avatar
+		$(function(){
+			$("#senha").focus(function(){
+				$("#bracos").addClass("esconder");
+				$(".olhos").addClass("fechar");
+			});
+
+			$("#senha").focusout(function(){
+				$("#bracos").removeClass("esconder");
+				$(".olhos").removeClass("fechar");
+			});
+		});
+
+		// Função para adicionar a class ".validacao", responsável validação visual que é feita pelo CSS
+		$(function(){$("input").focusout(function(){$("#form").addClass("validacao"); }); });
+</script>
