@@ -1,25 +1,32 @@
-.teste {
-    text-decoration: none;
-    color: black;
+.home{
+    color:white !important;
+}
+.home:hover{ 
+    color:#fc5f81 !important;
 
 }
 
-.teste:hover{
-    background-color: #B0D8F5;
-    border-radius: 5px;
-    color: #fff;
+
+.feed{
+    color:white !important;
+}
+.feed:hover{ 
+    color:#bc43f5 !important;
+
 }
 
-.muda {
-   width:34px;
-   height: 100%;
-   padding: 0; 
+.login{
+    color:white !important;
+}
+.login:hover{ 
+    color:#4ec9f1 !important;
+
 }
 
-.muda:hover {
-    background-color:#B0D8F5;
- }
+.cadastro{
+    color:white !important;
+}
+.cadastro:hover{ 
+    color:#f7e84b !important;
 
- a {
-     cursor: pointer;
- }
+}
