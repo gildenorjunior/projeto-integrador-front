@@ -1,7 +1,7 @@
 
  
   <!--Titulo-->
-  <div class="jumbotron jumbotron-fluid" style="background: #b67ae7">
+  <div class="jumbotron jumbotron-fluid mt-5" style="background: #b67ae7">
     <div class="container">
       <h1 class="display-6">Bem vinde! </h1>
       <p class="lead">Aqui você pode encontrar a ONG que mais combina com você e ver as postagens dela!</p>
@@ -248,32 +248,44 @@
         <button class="btn btn-outline-primary w-100" type="button" (click)='findByTituloPostagem()'>Pesquisar</button>
       </div>
 
+
+      <!--Inicio das pesquisas por Postagem-->
       <div class="row">
         <div class="col-md-12" *ngFor="let item of listaPostagens | orderBy : key : reverse">
           
-            <div class="mb-5" >
-              <div class="row featurette">
-                <div class="col-md-7 align-self-center">
-                  <h2 class="featurette-heading">{{item.titulo}}</h2>
-                  <p class="lead">Tema: {{item.tema.categoriaAjuda}}</p>
-                  <p>{{item.descricao}}</p> 
+          <div class="container w-100">
+          <div class="card mt-4">
+            <div class="card-header">
+              <strong>Tema: </strong>{{item.tema.categoriaAjuda}}
+            </div>
+            <div class="card-body">
+              
+              <div class="row">
+
+                <div class="col-md-7">
+                  <h3 class="card-title">{{item.titulo}}</h3>
+                  <p class="card-text">{{item.descricao}}</p>
                 </div>
                 <div class="col-md-5 d-flex justify-content-end align-self-center">
                   <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
                 </div>
+
               </div>
+
               <div class="row">
                 <div class="col-md-12 d-flex">
                   <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
                   <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
                 </div>
               </div>
-              <hr class="featurette-divider">
+              
             </div>
-          
+          </div>
+          </div>
         </div>
       </div>
-
+      
+      <!--/Fim das pesquisas por Postagem-->
 
     </div>
   </div>
@@ -289,35 +301,37 @@
       </div>
     </div>
 
-
-      <div class="row">
+      <!--Inicio das pesquisas por Tema-->
+      <div class="row mb-3">
         <div class="col-md-12" *ngFor="let item of listaTemas | orderBy : key : reverse">
           <div *ngFor='let post of item.postagem'>
-            <div class="mb-5" >
-              <div class="row featurette">
-                <div class="col-md-7 align-self-center">
-                  <h2 class="featurette-heading">{{post.titulo}}</h2>
-                  <p>{{post.descricao}}</p>
-                </div>
-                <div class="col-md-5 d-flex justify-content-end align-self-center">
-                  <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
-                </div>
+            
+
+            <div class="card mt-4">
+
+              <div class="card-body">
+                <div class="row">
+                  <div class="col-md-7 align-self-center">
+                    <h3 class="card-title">{{post.titulo}}</h3>
+                    <p class="card-text">{{post.descricao}}</p>
+                  </div>
+                  <div class="col-md-5 d-flex justify-content-end align-self-center">
+                    <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+                  </div>
+                  <div class="row">
+                    <div class="col-md-12 d-flex ml-2">
+                      <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
+                      <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
+                    </div>
+                  </div>
+                </div>                
               </div>
-              <div class="row">
-                <div class="col-md-12 d-flex">
-                  <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
-                  <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
-                </div>
-              </div>
-              <hr class="featurette-divider">
+
             </div>
-
           </div>
-          
         </div>
-
       </div>
-
+      <!--/Fim das pesquisas por Tema-->
 
     </div>
   </div>
