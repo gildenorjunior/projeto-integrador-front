@@ -5,6 +5,9 @@ import { Tema } from '../model/Tema';
 import { Usuario } from '../model/Usuario';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from './../service/alertas.service';
+import { environment } from './../../environments/environment.prod';
+import { UsuarioLogin } from './../model/UsuarioLogin';
 
 @Component({
   selector: 'app-painel',
@@ -24,16 +27,30 @@ export class PainelComponent implements OnInit {
 
   tema: Tema = new Tema()
   listaTemas: Tema[]
+  titulo: string
+  categoriaAjuda: string
 
   usuario: Usuario = new Usuario()
-
+  
+  
+  
   //Injetando as dependências do service.
   constructor(
     private postagemService: PostagemService,
-    private temaService: TemaService
+    private temaService: TemaService,
+    private router: Router,
+    private alerta: AlertasService
   ) { }
 
   ngOnInit(){
+    
+    let token = environment.token
+
+    if(token == '') {
+      this.router.navigate(['/login'])
+      this.alerta.showAlertInfo('Faça o login antes de entrar no feed...')
+    }
+
     window.scroll(0,0)
 
     //chamando meus métodos para serem utilizados assim que a página html for renderizada.
@@ -54,4 +71,26 @@ export class PainelComponent implements OnInit {
       this.listaTemas = resp
     })
   }
+
+  findByTituloPostagem()
+  {
+    if(this.titulo === ''){
+      this.findAllPostagens();
+    }
+    else{
+    this.postagemService.getByTituloPostagem(this.titulo).subscribe((resp:Postagem[])=>{
+      this.listaPostagens = resp}); 
+    }
+  }
+
+  findByNomeTema(){
+    if(this.categoriaAjuda === ''){
+      this.findAllTemas()
+    } else {
+      this.temaService.getByNomeTema(this.categoriaAjuda).subscribe((resp: Tema[]) => {
+        this.listaTemas = resp
+      })
+    }
+  }
+
 }

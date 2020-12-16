@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Tema } from '../model/Tema';
+import { Postagem } from './../model/Postagem';
+import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +14,7 @@ export class TemaService {
 
   //atribuindo a variável token o objeto HttpHeaders para autorizar a consulta.
   token = {
-    headers: new HttpHeaders().set('Authorization', localStorage.getItem('token')!)
+    headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
   //Método responsável por retornar as temas.
@@ -34,5 +36,9 @@ export class TemaService {
 
   deleteTema(id: number): Observable<Tema> {
     return this.http.delete<Tema>(`http://localhost:8080/tema/${id}`, this.token)
+  }
+
+  getByNomeTema(categoriaAjuda: string): Observable<Tema[]>{
+    return this.http.get<Tema[]>(`http://localhost:8080/tema/categoriaAjuda/${categoriaAjuda}`, this.token) 
   }
 }
