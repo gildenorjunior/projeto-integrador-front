@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Tema } from '../model/Tema';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from './../service/alertas.service';
 
 @Component({
   selector: 'app-form-tema',
@@ -16,7 +17,8 @@ export class FormTemaComponent implements OnInit {
 
   constructor(
     private temaService: TemaService,
-    private router: Router
+    private router: Router,
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
@@ -39,12 +41,12 @@ export class FormTemaComponent implements OnInit {
 
   cadastrar(){
     if(this.tema.categoriaAjuda == null || this.tema.descricao == null){
-      alert("Preencha todos os campos")
+      this.alert.showAlertDanger("Preencha todos os campos")
     }else{
       this.temaService.postTema(this.tema).subscribe((resp: Tema)=>{
         this.tema = resp
         this.router.navigate(['/painel'])
-        alert('Tema cadastrado com sucesso')
+        this.alert.showAlertSuccess('Tema cadastrado com sucesso')
       })
     }
   }

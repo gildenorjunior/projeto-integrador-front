@@ -3,6 +3,7 @@ import { Postagem } from '../model/Postagem';
 import { Tema } from '../model/Tema';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from './../service/alertas.service';
 
 @Component({
   selector: 'app-form-postagens',
@@ -19,7 +20,8 @@ export class FormPostagensComponent implements OnInit {
 
   constructor(
     private temaService: TemaService,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private alert: AlertasService
   ) { }
 
   ngOnInit() {
@@ -46,12 +48,12 @@ export class FormPostagensComponent implements OnInit {
       this.postagem.tema = this.tema
       
       if(this.postagem.titulo == null || this.postagem.descricao == null || this.postagem.tema == null){
-        alert('Preencha todos os campos antes de publicar')
+        this.alert.showAlertDanger('Preencha todos os campos antes de publicar')
       } else {
         this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
           this.postagem = resp
           this.postagem = new Postagem()
-          alert('Postagem realizada com sucesso')
+          this.alert.showAlertSuccess('Postagem realizada com sucesso')
         })
       }
      }

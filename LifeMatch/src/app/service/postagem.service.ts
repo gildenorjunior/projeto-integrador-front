@@ -2,6 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Postagem } from '../model/Postagem';
+import { environment } from './../../environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PostagemService {
 
   //atribuindo a variável token o objeto HttpHeaders para autorizar a consulta.
   token = {
-    headers: new HttpHeaders().set('Authorization', localStorage.getItem('token')!)
+    headers: new HttpHeaders().set('Authorization', environment.token)
   }
 
   //Método responsável por retornar as postagens.
@@ -34,6 +35,10 @@ export class PostagemService {
 
   deletePostagem(id: number){
     return this.http.delete<Postagem>(`http://localhost:8080/postagem/${id}`, this.token)
+  }
+
+  getByTituloPostagem(titulo: string): Observable<Postagem[]>{
+    return this.http.get<Postagem[]>(`http://localhost:8080/postagem/titulo/${titulo}`, this.token) 
   }
 
 }

@@ -3,7 +3,7 @@
   <!--Titulo-->
   <div class="jumbotron jumbotron-fluid" style="background: #fbf9b4">
     <div class="container">
-      <h1 class="display-6">Bem vindo, José!</h1>
+      <h1 class="display-6">Bem vinde! </h1>
       <p class="lead">Aqui você pode encontrar a ONG que mais combina com você e ver as postagens dela!</p>
     </div>
   </div>
@@ -228,23 +228,83 @@
   <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel" aria-labelledby="nav-postagens-tab">
     <div class="row mt-3 mb-3">
       <div class="col-md-10 pr-0">
-        <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar">
+        <input class="form-control w-100" type="search" placeholder="Pesquisar postagem" aria-label="Pesquisar" [(ngModel)]='titulo'>
       </div>
       <div class="col-md-2 pl-0">
-        <button class="btn btn-outline-primary w-100" type="button">Pesquisar</button>
+        <button class="btn btn-outline-primary w-100" type="button" (click)='findByTituloPostagem()'>Pesquisar</button>
       </div>
+
+      <div class="row">
+        <div class="col-md-12" *ngFor="let item of listaPostagens | orderBy : key : reverse">
+          
+            <div class="mb-5" >
+              <div class="row featurette">
+                <div class="col-md-7 align-self-center">
+                  <h2 class="featurette-heading">{{item.titulo}}</h2>
+                  <p class="lead">Tema: {{item.tema.categoriaAjuda}}</p>
+                  <p>{{item.descricao}}</p> 
+                </div>
+                <div class="col-md-5 d-flex justify-content-end align-self-center">
+                  <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 d-flex">
+                  <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
+                  <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
+                </div>
+              </div>
+              <hr class="featurette-divider">
+            </div>
+          
+        </div>
+      </div>
+
+
     </div>
   </div>
 
   <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
+
     <div class="row mt-3 mb-3">
       <div class="col-md-10 pr-0">
-        <input class="form-control w-100" type="search" placeholder="Pesquisar tema" aria-label="Pesquisar">
+        <input class="form-control w-100" type="search" placeholder="Pesquisar tema" aria-label="Pesquisar" [(ngModel)]='categoriaAjuda'>
       </div>
       <div class="col-md-2 pl-0">
-        <button class="btn btn-outline-primary w-100" type="button">Pesquisar</button>
+        <button class="btn btn-outline-primary w-100" type="button" (click)='findByNomeTema()'>Pesquisar</button>
       </div>
+    </div>
+
+
+      <div class="row">
+        <div class="col-md-12" *ngFor="let item of listaTemas | orderBy : key : reverse">
+          <div *ngFor='let post of item.postagem'>
+            <div class="mb-5" >
+              <div class="row featurette">
+                <div class="col-md-7 align-self-center">
+                  <h2 class="featurette-heading">{{post.titulo}}</h2>
+                  <p>{{post.descricao}}</p>
+                </div>
+                <div class="col-md-5 d-flex justify-content-end align-self-center">
+                  <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 d-flex">
+                  <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
+                  <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
+                </div>
+              </div>
+              <hr class="featurette-divider">
+            </div>
+
+          </div>
+          
+        </div>
+
       </div>
+
+
     </div>
   </div>
 <!--/Pesquisa Postagens-->
@@ -254,29 +314,20 @@
 
 
 <!--Inicio das Postagens-->
-<div class="row">
-  <div class="col-md-12" *ngFor="let item of listaPostagens | orderBy : key : reverse">
-    <div class="mb-5" >
-      <div class="row featurette">
-        <div class="col-md-7 align-self-center">
-          <h2 class="featurette-heading">{{item.titulo}}</h2>
-          <p class="lead">{{item.descricao}}</p>
-        </div>
-        <div class="col-md-5 d-flex justify-content-end align-self-center">
-          <img width="300px" height="300px" src="https://i.pinimg.com/originals/33/79/6a/33796ac32ac5f2acfb2984e48114d9e4.jpg" alt="Generic placeholder image">
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-12 d-flex">
-          <button type="button" class="btn btn-outline-warning mr-1" [routerLink]="['/editar-postagem', item.idPostagem]">Editar</button>
-          <button type="button" class="btn btn-outline-danger" [routerLink]="['/deletar-postagem', item.idPostagem]">Apagar</button>
-        </div>
-      </div>
-      <hr class="featurette-divider">
-    </div>
-  </div>
-</div>
+
 <!--/Fim das Postagens-->
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 <!-- Primeiro Modal -->

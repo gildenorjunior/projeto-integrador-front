@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { PostagemService } from '../service/postagem.service';
 import { TemaService } from '../service/tema.service';
+import { AlertasService } from './../service/alertas.service';
 
 @Component({
   selector: 'app-delete-postagem',
@@ -17,7 +18,8 @@ export class DeletePostagemComponent implements OnInit {
   constructor(
     private postagemService: PostagemService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private alert: AlertasService
   ) { }
 
   ngOnInit(){
@@ -35,7 +37,7 @@ export class DeletePostagemComponent implements OnInit {
   btnSim(){
     this.postagemService.deletePostagem(this.postagem.idPostagem).subscribe(()=>{
       this.router.navigate(['/painel'])
-      alert('Postagem apagada com sucesso')
+      this.alert.showAlertSuccess('Postagem apagada com sucesso')
     })
   }
 
