@@ -18,27 +18,27 @@ export class PostagemService {
 
   //Método responsável por retornar as postagens.
   getAllPostagens(): Observable<Postagem[]>{
-    return this.http.get<Postagem[]>('http://localhost:8080/postagem', this.token)
+    return this.http.get<Postagem[]>('https://lifematch.herokuapp.com/postagem', this.token)
   }
 
   getByIdPostagem(id: number):Observable<Postagem>{
-    return this.http.get<Postagem>(`http://localhost:8080/postagem/${id}`, this.token)
+    return this.http.get<Postagem>(`https://lifematch.herokuapp.com/postagem/${id}`, this.token)
   }
 
   postPostagem(postagem: Postagem):Observable<Postagem>{
-    return this.http.post<Postagem>('http://localhost:8080/postagem', postagem, this.token)
+    return this.http.post<Postagem>('https://lifematch.herokuapp.com/postagem', postagem, this.token)
   }
 
   putPostagem(postagem: Postagem):Observable<Postagem>{
-    return this.http.put<Postagem>('http://localhost:8080/postagem', postagem, this.token)
+    return this.http.put<Postagem>('https://lifematch.herokuapp.com/postagem', postagem, this.token)
   }
 
   deletePostagem(id: number){
-    return this.http.delete<Postagem>(`http://localhost:8080/postagem/${id}`, this.token)
+    return this.http.delete<Postagem>(`https://lifematch.herokuapp.com/postagem/${id}`, this.token)
   }
 
   getByTituloPostagem(titulo: string): Observable<Postagem[]>{
-    return this.http.get<Postagem[]>(`http://localhost:8080/postagem/titulo/${titulo}`, this.token) 
+    return this.http.get<Postagem[]>(`https://lifematch.herokuapp.com/postagem/titulo/${titulo}`, this.token) 
   }
 
 }
