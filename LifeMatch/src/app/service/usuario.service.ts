@@ -17,22 +17,22 @@ export class UsuarioService {
 
   //Método responsável por retornar as temas.
   getAllUsuario():Observable<Usuario[]>{
-    return this.http.get<Usuario[]>('http://localhost:8080/tema', this.token)
+    return this.http.get<Usuario[]>('https://lifematch.herokuapp.com/tema', this.token)
   }
 
   getByIdUsuario(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:8080/tema/${id}`, this.token)
+    return this.http.get<Usuario>(`https://lifematch.herokuapp.com/tema/${id}`, this.token)
   }
 
   postUsuario(usuario: Usuario): Observable<Usuario>{
-    return this.http.post<Usuario>('http://localhost:8080/tema', usuario, this.token)
+    return this.http.post<Usuario>('https://lifematch.herokuapp.com/tema', usuario, this.token)
   }
 
   putUsuario(usuario: Usuario): Observable<Usuario>{
-    return this.http.put<Usuario>('http://localhost:8080/tema', usuario, this.token)
+    return this.http.put<Usuario>('https://lifematch.herokuapp.com/tema', usuario, this.token)
   }
 
   deleteUsuario(id: number): Observable<Usuario> {
-    return this.http.delete<Usuario>(`http://localhost:8080/tema/${id}`, this.token)
+    return this.http.delete<Usuario>(`https://lifematch.herokuapp.com/tema/${id}`, this.token)
   }
 }
